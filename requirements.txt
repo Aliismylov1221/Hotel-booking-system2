@@ -1,2 +1,12 @@
-Flask==2.2.2
-Flask-RESTful==0.3.9
+from flask import Flask
+from routes.hotel_routes import hotel_routes
+from routes.booking_routes import booking_routes
+
+app = Flask(_name_)
+
+# Register Blueprints
+app.register_blueprint(hotel_routes, url_prefix="/hotels")
+app.register_blueprint(booking_routes, url_prefix="/bookings")
+
+if _name_ == "_main_":
+    app.run(debug=True)
